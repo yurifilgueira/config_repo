@@ -9,10 +9,14 @@ spring:
           lower-case-service-id: true
           enabled: true
       routes:
-      - id: ticket-alpha
-        uri: lb://ticket-alpha
-        predicates:
-        - Path=/api/**
+        - id: ticket-alpha
+          uri: lb://ticket-alpha
+          predicates:
+            - Path=/api/**
+        - id: ticket-service
+          uri: lb://ticket-service
+          predicates:
+            - Path=/tickets/**
 
 eureka:
   client:
