@@ -9,8 +9,6 @@ spring:
       ddl-auto: update
 
 eureka:
-  instance:
-    prefer-ip-address: true
   client:
     register-with-eureka: true
     fetch-registry: true
