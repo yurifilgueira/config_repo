@@ -17,6 +17,17 @@ spring:
           uri: lb://ticket-service
           predicates:
             - Path=/tickets/**
+      default-filters:
+        - name: Retry
+          args:
+            retires: 3
+            methods: GET,POST,PUT
+            statuses: INTERNAL_SERVER_ERROR,BAD_GATEWAY
+            backoff:
+              firstBackoff: 50ms
+              maxBackOff: 500ms
+              factor: 2
+              basedOnPreviousValue: false
 
 eureka:
   client:
@@ -26,12 +37,8 @@ eureka:
       defaultZone: http://server1:8761/eureka,http://server2:8762/eureka,http://server3:8763/eureka
 
 
-
 management:
-  endpoint:
-    gateway:
-      enabled= true:
   endpoints:
     web:
       exposure:
-        include: gateway
+        include: "*"
