@@ -7,20 +7,20 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka,http://localhost:8762/eureka,http://localhost:8763/eureka
 
+
 management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
+  security:
+    enabled: false
   health:
     circuitbreakers:
       enabled: true
   endpoint:
     health:
-      enabled: true
-      show-details: always
-
-management.health.circuitbreakers.enabled: true
+      show-details: "ALWAYS"
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 resilience4j:
   circuitbreaker:
