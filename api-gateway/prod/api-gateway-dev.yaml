@@ -10,10 +10,8 @@ spring:
           include-expression: "'ticket-alpha'.equals(serviceId) || 'ticket-service'.equals(serviceId)"
 
 eureka:
-  instance:
-    prefer-ip-address: true
   client:
     register-with-eureka: true
     fetch-registry: true
     serviceUrl:
-      defaultZone: http://server1:8761/eureka/,http://server2:8762/eureka/,http://server3:8763/eureka/
+      defaultZone: http://server1:8761/eureka,http://server2:8762/eureka,http://server3:8763/eureka
