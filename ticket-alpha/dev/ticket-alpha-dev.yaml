@@ -11,9 +11,9 @@ management:
   endpoints:
     web:
       exposure:
-        include: 'health,circuitbreakers'
+        include: '*'
   health:
-    circuitbreakers:
+    circuit breakers:
       enabled: true
   endpoint:
     health:
@@ -21,7 +21,7 @@ management:
       show-details: always
 
 resilience4j:
-  circuitbreaker:
+  circuit breaker:
     configs:
       default:
         register-health-indicator: true
