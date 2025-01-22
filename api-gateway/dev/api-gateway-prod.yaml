@@ -6,7 +6,7 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true
+          enable: true
           include-expression: "'ticket-alpha'.equals(serviceId) || 'ticket-service'.equals(serviceId)"
 
 eureka:
