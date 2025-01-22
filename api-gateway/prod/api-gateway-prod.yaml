@@ -8,7 +8,11 @@ spring:
         locator:
           lower-case-service-id: true
           enabled: true
-          include-expression: "'ticket-alpha'.equals(serviceId) || 'ticket-service'.equals(serviceId)"
+      routes:
+      - id: ticket-alpha
+        uri: lb://ticket-alpha
+        predicates:
+        - Path=/api/**
 
 eureka:
   client:
