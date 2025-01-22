@@ -26,8 +26,12 @@ eureka:
       defaultZone: http://server1:8761/eureka,http://server2:8762/eureka,http://server3:8763/eureka
 
 
+
 management:
+  endpoint:
+    gateway:
+      enabled= true:
   endpoints:
     web:
       exposure:
-        include: *
+        include: gateway
