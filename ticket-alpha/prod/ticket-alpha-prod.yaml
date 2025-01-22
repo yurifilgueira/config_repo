@@ -11,7 +11,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: 'health,circuitbreakers'
+        include: '*'
   health:
     circuitbreakers:
       enabled: true
@@ -19,6 +19,8 @@ management:
     health:
       enabled: true
       show-details: always
+
+management.health.circuitbreakers.enabled: true
 
 resilience4j:
   circuitbreaker:
