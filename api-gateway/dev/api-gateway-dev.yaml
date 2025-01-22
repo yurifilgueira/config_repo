@@ -13,6 +13,14 @@ spring:
           uri: lb://ticket-alpha
           predicates:
             - Path=/api/**
+          filters:
+          - name: CircuitBreaker
+            args:
+              name: ticketalphacircuitbreaker
+              slidingWindowSize: 10
+              permittedNumberOfCallsInHalfOpenState: 5
+              failureRateThreshold: 10
+              waitDurationInOpenState: 10000
         - id: ticket-service
           uri: lb://ticket-service
           predicates:
