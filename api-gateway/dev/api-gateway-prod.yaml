@@ -6,6 +6,7 @@ spring:
     gateway:
       discovery:
         locator:
+          lower-case-service-id: true
           enabled: true
           include-expression: "'ticket-alpha'.equals(serviceId) || 'ticket-service'.equals(serviceId)"
 
