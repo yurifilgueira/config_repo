@@ -40,7 +40,14 @@ eureka:
 
 
 management:
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+    shutdown:
+      enabled: true
   endpoints:
     web:
+      base-path: /
       exposure:
-        include: "*"
+        include: '*'
